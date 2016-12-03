@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <style type="text/css">
+        .hidden {
+            display: none;
+            visibility: hidden;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid blue;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #eee;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        table th {
+            background-color: blue;
+            color: white;
+        }
+
+        span.error {
+            color: red;
+        }
+    </style>
+</head>
+<body style="background-color:lightgreen;">
+<br/>
+<h1 style="text-align:center;color:blue;">Account Details</h1>
+
+
+<div>
+    <form id="form_uploadFile" method="POST">
+        <div>
+        <br/>
+            <p>File to upload:</p>
+            <input type="file" name="uploadfile"/>
+        </div>
+    </form>
+    <button id="ajax_upload">Upload File</button>
+    <span id="span_fileUpload"></span>
+</div>
+<hr/>
+<div>
+    Balance:
+    <button id="btn_showBalance">Show</button>
+    <span id="span_balance"></span>
+    <span class="error" id="error_balance"></span>
+</div>
+<hr/>
+<div>
+    Transactions:
+    <button id="btn_showAllTransactions">Show All</button>
+    <span class="error" id="error_findAll"></span>
+</div>
+<hr/>
+<div>
+    Transaction type:
+    <input type="text" id="in_transactionType" placeholder="ex: FT"/>
+    <button id="btn_findByType">Find</button>
+    <span class="error" id="error_findByType"></span>
+</div>
+<hr/>
+<div>
+    Transaction date:
+    <input type="date" id="in_dateFrom"/>
+    <input type="date" id="in_dateTo"/>
+    <button id="btn_findByDateRange">Find</button>
+    <span class="error" id="error_findByDateRange"></span>
+</div>
+<hr/>
+<div class="hidden" id="div_transactions">
+    <h3>Transactions</h3>
+    <h4><span id="span_tranCount"></span></h4>
+    <table id="tab_transactions">
+        <thead>
+        <th>Balance</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Description</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+<script type="text/javascript" th:src="@{/js/accountdetails.js}"/>
+
+</body>
+</html>
